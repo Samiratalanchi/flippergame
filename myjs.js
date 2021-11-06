@@ -22,6 +22,8 @@ var picAdd = [
 ]
 function startGame() {
 
+    document.querySelectorAll(".front").forEach(a=>a.style.display = "none");
+    document.querySelectorAll(".back").forEach(a=>a.style.display = "block");
     document.getElementById("restart").style.visibility="visible";
     
     var shuffleArray = array => {
@@ -37,4 +39,7 @@ function startGame() {
     for(let i=1;i<=20;i++) {
         document.getElementById("back-"+i).style.backgroundImage= "url("+picAdd[i-1]+")";
     }
+
+    
+
 }
