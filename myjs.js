@@ -93,10 +93,11 @@ function startGame() {
 window.onclick = function(event) {
     var frontCard,backCard;
     if(start==true) {
-        for (let i=1;i<=20;i++) {
+        for (let i=0;i<20;i++) {
             frontCard = document.getElementsByClassName("front")[i];
             backCard = document.getElementsByClassName("back")[i];
             if (event.target == frontCard){
+                console.log(event.target);
                 if (counter==0) {
                     card1=i;
                     frontCard.style.display = "none";
