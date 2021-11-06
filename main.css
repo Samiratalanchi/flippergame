@@ -3,20 +3,41 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: rgb(247, 234, 211);
+}
+.container {
+    width: 58vw;
+    height: auto;
 }
 .box {
+    margin-top: 10px;
     width: 58vw;
-    height: 50px;
-
+    height: 70px;
+    margin-bottom: 10px;
 }
-.score , .timer {
+.timer, .score {
     float: left;
+    width: 8vw;
+    height: 5vw;
+    box-shadow: 4px 4px 4px 2px white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.button {
+#start,#restart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     float: right;
-}
-#restart {
-    visibility: hidden;
+    width: 5vw;
+    height: 5vw;
+    background-color: rgb(247, 234, 211);
+    color: black;
+    box-shadow: 4px 4px 4px 2px white;
+    margin-left: 5px;
+    border-radius: 15px;
+    cursor: pointer;
 }
 .card-grid {
     display: grid;

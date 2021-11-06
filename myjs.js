@@ -23,12 +23,12 @@ var picAdd = [
 var start=false;
 var counter =0;
 var card1,card2;
-var time = 10;
+var time = 60;
 var score = 0;
 var highScore = 0;
 function startGame() {
 
-    time=10;
+    time=60;
     score=0;
 
     document.querySelectorAll(".front").forEach(a=>a.style.display = "none");
@@ -41,6 +41,7 @@ function startGame() {
     
 
     function timer() {
+        time--;
         document.getElementById("timerValue").innerHTML=time;
     }
 
@@ -61,7 +62,11 @@ function startGame() {
 
         start="false";
 
+        document.getElementById("scoreValue").innerHTML= "0";
+        document.getElementById("timerValue").innerHTML= "60";
+
         clearInterval(x);
+        clearTimeout(y);
     }
 
 
@@ -86,7 +91,7 @@ function startGame() {
         document.querySelectorAll(".front").forEach(a=>a.style.display = "block");
 
         x = setInterval(timer,1000);
-        setTimeout(finish,10000);
+        y = setTimeout(finish,60000);
     }
     start = true;
 }
@@ -97,7 +102,6 @@ window.onclick = function(event) {
             frontCard = document.getElementsByClassName("front")[i];
             backCard = document.getElementsByClassName("back")[i];
             if (event.target == frontCard){
-                console.log(event.target);
                 if (counter==0) {
                     card1=i;
                     frontCard.style.display = "none";
@@ -140,9 +144,13 @@ window.onclick = function(event) {
                             document.getElementById("restart").style.visibility="hidden";
                             document.getElementById("start").style.visibility="visible";
 
+                            document.getElementById("scoreValue").innerHTML= "0";
+                            document.getElementById("timerValue").innerHTML= "60";
+
                             start="false";
 
                             clearInterval(x);
+                            clearTimeout(y);
                         }
                     }
                     counter = 0;

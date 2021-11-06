@@ -21,17 +21,15 @@
     <div class="container">
         <div class="box">
             <div class="timer">
-                <label>Timer:</label>
+                <label>Timer:   </label>
                 <label id="timerValue">60</label>
             </div>
             <div class="score">
-                <label>Score:</label>
+                <label>Score:    </label>
                 <label id="scoreValue">0</label>
             </div>
-            <div class="button">
-                <button id="restart" type="button">Restart</button>
-                <button id="start" type="button" onclick="startGame()">start</button>
-            </div>
+            <div id="restart" onclick="startGame()">Restart</div>
+            <div id="start" onclick="startGame()">Start</div>
         </div>
         <div class="card-grid">
             <div class="grid-item">
