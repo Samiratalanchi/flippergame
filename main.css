@@ -1,8 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box {
+    width: 58vw;
+    height: 50px;
+
+}
+.rate , .timer {
+    float: left;
+}
+.button {
+    float: right;
+}
 .card-grid {
     display: grid;
     grid-template-columns: repeat(5,10vw);
     grid-template-rows: repeat(4,10vw);
-    grid-gap: 10px;
+    grid-gap: 2vw;
     justify-content: center;
     align-items: center;
 }
