@@ -21,7 +21,19 @@ var picAdd = [
     "./static/backimage/10.jpg"
 ]
 function startGame() {
+
+    document.getElementById("restart").style.visibility="visible";
     
+    var shuffleArray = array => {
+        for(let i = 19 ; i > 0 ; i --) {
+            const j = Math.floor(Math.random() * (i+1));
+            const temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+    shuffleArray(picAdd);
+
     for(let i=1;i<=20;i++) {
         document.getElementById("back-"+i).style.backgroundImage= "url("+picAdd[i-1]+")";
     }
