@@ -29,6 +29,7 @@ body {
 }
 .front {
     background: url("./static/front.jpg");
+    visibility: hidden;
 }
 .front, .back {
     width: 10vw;
@@ -38,5 +39,5 @@ body {
     border-radius: 5px;
 }
 .back {
-    visibility: hidden;
+    
 }
