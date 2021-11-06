@@ -20,6 +20,8 @@ var picAdd = [
     "./static/backimage/9.jpg",
     "./static/backimage/10.jpg"
 ]
+var start=false;
+var counter =0;
 function startGame() {
 
     document.querySelectorAll(".front").forEach(a=>a.style.display = "none");
@@ -48,5 +50,18 @@ function startGame() {
         document.querySelectorAll(".back").forEach(a=>a.style.display = "none");
         document.querySelectorAll(".front").forEach(a=>a.style.display = "block");
     }
-
+    start = true;
+}
+window.onclick = function(event) {
+    var frontCard,backCard;
+    if(start=true) {
+        for (let i=1;i<=20;i++) {
+            frontCard = document.getElementsByClassName("front")[i];
+            backCard = document.getElementsByClassName("back")[i];
+            if (event.target == frontCard){
+                frontCard.style.display = "none";
+                backCard.style.display = "block";
+            }
+        }
+    }
 }
