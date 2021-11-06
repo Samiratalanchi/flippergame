@@ -29,8 +29,8 @@ var highScore = 0;
 var x,y;
 function startGame() {
 
-    clearInterval(x);
     clearTimeout(y);
+    clearInterval(x);
 
     document.getElementById("scoreValue").innerHTML= "0";
     document.getElementById("timerValue").innerHTML= "60";
@@ -46,7 +46,6 @@ function startGame() {
 
     document.getElementById("info").style.visibility="hidden";
     
-
     function timer() {
         time--;
         document.getElementById("timerValue").innerHTML=time;
@@ -75,6 +74,8 @@ function startGame() {
         document.getElementById("restart").style.visibility="hidden";
         document.getElementById("start").style.visibility="visible";
 
+        document.getElementById("timerCircle").style.animation="none";
+        
         clearInterval(x);
         clearTimeout(y);
     }
@@ -102,6 +103,7 @@ function startGame() {
 
         x = setInterval(timer,1000);
         y = setTimeout(finish,60000);
+        document.getElementById("timerCircle").style.animation="startTimer 60s linear forwards";
     }
     start = true;
 }
@@ -116,14 +118,17 @@ window.onclick = function(event) {
                 if (counter==0) {
                     card1=i;
                     frontCard.style.visibility="hidden"
-                    backCard.style.transform = "perspective(800px) rotateX(360deg)";
                     backCard.style.visibility = "visible";
+                    backCard.style.transform = "rotateX(360deg)";
+                    
                     counter++ ;
+
+                    
                 }
                 else if(counter==1) {
                     card2=i;
                     frontCard.style.visibility = "hidden";
-                    backCard.style.transform = "perspective(800px) rotateX(360deg)";
+                    backCard.style.transform = "rotateX(360deg)";
                     backCard.style.visibility = "visible";
                     const element1 = document.getElementsByClassName("back")[card1];
                     const element2 = document.getElementsByClassName("back")[card2];
@@ -134,15 +139,22 @@ window.onclick = function(event) {
                     if (ad1 != ad2) {
                         setTimeout(hideCard,500);
                         function hideCard() {
-                            document.getElementsByClassName("front")[card1].style.visibility="visible";
-                            document.getElementsByClassName("front")[card1].style.transform = "perspective(800px) rotateX(360deg)";
+
                             document.getElementsByClassName("back")[card1].style.visibility="hidden";
-                            document.getElementsByClassName("front")[card2].style.visibility="visible";
-                            document.getElementsByClassName("front")[card2].style.transform = "perspective(800px) rotateX(360deg)";
+                            document.getElementsByClassName("back")[card1].style.transform = "rotateX(360deg)";
+                            document.getElementsByClassName("front")[card1].style.visibility="visible";
+                            document.getElementsByClassName("front")[card1].style.transform = "rotateX(360deg)";
+                            
                             document.getElementsByClassName("back")[card2].style.visibility="hidden";
+                            document.getElementsByClassName("back")[card2].style.transform = "rotateX(360deg)";
+                            document.getElementsByClassName("front")[card2].style.visibility="visible";
+                            document.getElementsByClassName("front")[card2].style.transform = "rotateX(360deg)";
+                            
+                            document.getElementsByClassName("back")[card1].style.transform = "none";
+                            document.getElementsByClassName("back")[card2].style.transform = "none";
                         }
-                        document.getElementsByClassName("front")[card1].style.transform = "none";
-                        document.getElementsByClassName("front")[card2].style.transform = "none";
+                        
+                        
                         
                         
                     } else {
@@ -171,16 +183,16 @@ window.onclick = function(event) {
                             document.getElementById("restart").style.visibility="hidden";
                             document.getElementById("start").style.visibility="visible";
 
+                            document.getElementById("timerCircle").style.animation="none";
+
                             clearInterval(x);
                             clearTimeout(y);
                         }
                     }
                     counter = 0;
-                    document.getElementsByClassName("back")[card1].style.transform = "none";
-                    document.getElementsByClassName("back")[card2].style.transform = "none";
+                    
                 }
-                frontCard.style.transform= "none";
-                backCard.style.transform = "none";
+                
             }
         }
     }
