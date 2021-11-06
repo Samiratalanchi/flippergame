@@ -23,14 +23,48 @@ var picAdd = [
 var start=false;
 var counter =0;
 var card1,card2;
+var time = 10;
+var score = 0;
+var highScore = 0;
 function startGame() {
+
+    time=10;
+    score=0;
 
     document.querySelectorAll(".front").forEach(a=>a.style.display = "none");
     document.querySelectorAll(".back").forEach(a=>a.style.display = "block");
 
     document.getElementById("restart").style.visibility="visible";
     document.getElementById("start").style.visibility="hidden";
+
+    document.getElementById("info").style.visibility="hidden";
     
+
+    function timer() {
+        document.getElementById("timerValue").innerHTML=time;
+    }
+
+    function finish() {
+        if (score > highScore) {
+            highScore = score;
+        }
+        document.getElementById("highScoreValueFinish").innerHTML=highScore;
+        document.getElementById("scoreValueFinish").innerHTML=score;
+
+        document.getElementById("info").style.visibility="visible";
+
+        document.querySelectorAll(".back").forEach(a=>a.style.display = "none");
+        document.querySelectorAll(".front").forEach(a=>a.style.display = "block");
+
+        document.getElementById("restart").style.visibility="hidden";
+        document.getElementById("start").style.visibility="visible";
+
+        start="false";
+
+        clearInterval(x);
+    }
+
+
     var shuffleArray = array => {
         for(let i = 19 ; i > 0 ; i --) {
             const j = Math.floor(Math.random() * (i+1));
@@ -50,6 +84,9 @@ function startGame() {
     function runGame() {
         document.querySelectorAll(".back").forEach(a=>a.style.display = "none");
         document.querySelectorAll(".front").forEach(a=>a.style.display = "block");
+
+        x = setInterval(timer,1000);
+        setTimeout(finish,10000);
     }
     start = true;
 }
@@ -84,15 +121,32 @@ window.onclick = function(event) {
                             document.getElementsByClassName("front")[card2].style.display="block";
                             document.getElementsByClassName("back")[card2].style.display="none";
                         }
+                    } else {
+                        score += 10;
+                        document.getElementById("scoreValue").innerHTML=score;
+
+                        if(score == 100) {
+                            document.querySelectorAll(".back").forEach(a=>a.style.display = "none");
+                            document.querySelectorAll(".front").forEach(a=>a.style.display = "block");
+
+                            highScore = score;
+
+                            document.getElementById("highScoreValueFinish").innerHTML=highScore;
+                            document.getElementById("scoreValueFinish").innerHTML=score;
+
+                            document.getElementById("info").style.visibility="visible";
+
+                            document.getElementById("restart").style.visibility="hidden";
+                            document.getElementById("start").style.visibility="visible";
+
+                            start="false";
+
+                            clearInterval(x);
+                        }
                     }
                     counter = 0;
                 }
             }
         }
-    }
-    if(counter==2) {
-        document.getElementsByClassName("front")[i].display="block";
-        document.getElementsByClassName("back")[i].display="none";
-        counter=0 ;
     }
 }

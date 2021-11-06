@@ -9,7 +9,7 @@ body {
     height: 50px;
 
 }
-.rate , .timer {
+.score , .timer {
     float: left;
 }
 .button {
@@ -42,4 +42,19 @@ body {
 }
 .back {
     display: none;
+}
+#info {
+    width: 40vw;
+    height: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(207, 149, 199, 0.705);
+    color: white;
+    position: absolute;
+    border-radius: 50px;
+    margin-top: 5vw;
+    visibility: hidden;
+    z-index: 1;
 }
