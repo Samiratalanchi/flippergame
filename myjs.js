@@ -24,7 +24,9 @@ function startGame() {
 
     document.querySelectorAll(".front").forEach(a=>a.style.display = "none");
     document.querySelectorAll(".back").forEach(a=>a.style.display = "block");
+
     document.getElementById("restart").style.visibility="visible";
+    document.getElementById("start").style.visibility="hidden";
     
     var shuffleArray = array => {
         for(let i = 19 ; i > 0 ; i --) {
@@ -40,6 +42,11 @@ function startGame() {
         document.getElementById("back-"+i).style.backgroundImage= "url("+picAdd[i-1]+")";
     }
 
-    
+    setTimeout(runGame,3000);
+
+    function runGame() {
+        document.querySelectorAll(".back").forEach(a=>a.style.display = "none");
+        document.querySelectorAll(".front").forEach(a=>a.style.display = "block");
+    }
 
 }
