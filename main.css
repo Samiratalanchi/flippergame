@@ -3,7 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(247, 234, 211);
+    background-color: #ccceda;
 }
 .container {
     width: 58vw;
@@ -19,7 +19,7 @@ body {
     float: left;
     width: 8vw;
     height: 5vw;
-    box-shadow: 4px 4px 4px 2px white;
+    /* box-shadow: 4px 4px 4px 2px white; */
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -32,12 +32,17 @@ body {
     float: right;
     width: 5vw;
     height: 5vw;
-    background-color: rgb(247, 234, 211);
     color: black;
-    box-shadow: 4px 4px 4px 2px white;
-    margin-left: 5px;
+    background-color: #cfd2df;
+    box-shadow: 2px 2px 2px  white;
+    margin-left: 8px;
     border-radius: 15px;
     cursor: pointer;
+    position: absolute;
+    margin-left: 52vw;
+}
+#restart {
+    visibility: hidden;
 }
 .card-grid {
     display: grid;
@@ -60,9 +65,12 @@ body {
     background-size: cover;
     border: 1px solid black;
     border-radius: 5px;
+    backface-visibility: hidden;
+    transition: transform .5s;
+    position: absolute;
 }
 .back {
-    display: none;
+    visibility: hidden;
 }
 #info {
     width: 40vw;

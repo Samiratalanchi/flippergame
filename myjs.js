@@ -38,8 +38,8 @@ function startGame() {
     time=60;
     score=0;
 
-    document.querySelectorAll(".front").forEach(a=>a.style.display = "none");
-    document.querySelectorAll(".back").forEach(a=>a.style.display = "block");
+    document.querySelectorAll(".front").forEach(a=>a.style.visibility = "hidden");
+    document.querySelectorAll(".back").forEach(a=>a.style.visibility = "visible");
 
     document.getElementById("restart").style.visibility="visible";
     document.getElementById("start").style.visibility="hidden";
@@ -61,8 +61,8 @@ function startGame() {
 
         document.getElementById("info").style.visibility="visible";
 
-        document.querySelectorAll(".back").forEach(a=>a.style.display = "none");
-        document.querySelectorAll(".front").forEach(a=>a.style.display = "block");
+        document.querySelectorAll(".back").forEach(a=>a.style.visibility = "hidden");
+        document.querySelectorAll(".front").forEach(a=>a.style.visibility = "visible");
 
         document.getElementById("restart").style.visibility="hidden";
         document.getElementById("start").style.visibility="visible";
@@ -97,8 +97,8 @@ function startGame() {
     setTimeout(runGame,3000);
 
     function runGame() {
-        document.querySelectorAll(".back").forEach(a=>a.style.display = "none");
-        document.querySelectorAll(".front").forEach(a=>a.style.display = "block");
+        document.querySelectorAll(".back").forEach(a=>a.style.visibility = "hidden");
+        document.querySelectorAll(".front").forEach(a=>a.style.visibility = "visible");
 
         x = setInterval(timer,1000);
         y = setTimeout(finish,60000);
@@ -111,17 +111,20 @@ window.onclick = function(event) {
         for (let i=0;i<20;i++) {
             frontCard = document.getElementsByClassName("front")[i];
             backCard = document.getElementsByClassName("back")[i];
+            
             if (event.target == frontCard){
                 if (counter==0) {
                     card1=i;
-                    frontCard.style.display = "none";
-                    backCard.style.display = "block";
+                    frontCard.style.visibility="hidden"
+                    backCard.style.transform = "perspective(800px) rotateX(360deg)";
+                    backCard.style.visibility = "visible";
                     counter++ ;
                 }
                 else if(counter==1) {
                     card2=i;
-                    frontCard.style.display = "none";
-                    backCard.style.display = "block";
+                    frontCard.style.visibility = "hidden";
+                    backCard.style.transform = "perspective(800px) rotateX(360deg)";
+                    backCard.style.visibility = "visible";
                     const element1 = document.getElementsByClassName("back")[card1];
                     const element2 = document.getElementsByClassName("back")[card2];
                     var style1 = window.getComputedStyle(element1,false);
@@ -129,20 +132,26 @@ window.onclick = function(event) {
                     var ad1 = style1.backgroundImage.slice(4,-1).replace(/"/g, "");
                     var ad2 = style2.backgroundImage.slice(4,-1).replace(/"/g, "");
                     if (ad1 != ad2) {
-                        setTimeout(hidecard,500);
-                        function hidecard() {
-                            document.getElementsByClassName("front")[card1].style.display="block";
-                            document.getElementsByClassName("back")[card1].style.display="none";
-                            document.getElementsByClassName("front")[card2].style.display="block";
-                            document.getElementsByClassName("back")[card2].style.display="none";
+                        setTimeout(hideCard,500);
+                        function hideCard() {
+                            document.getElementsByClassName("front")[card1].style.visibility="visible";
+                            document.getElementsByClassName("front")[card1].style.transform = "perspective(800px) rotateX(360deg)";
+                            document.getElementsByClassName("back")[card1].style.visibility="hidden";
+                            document.getElementsByClassName("front")[card2].style.visibility="visible";
+                            document.getElementsByClassName("front")[card2].style.transform = "perspective(800px) rotateX(360deg)";
+                            document.getElementsByClassName("back")[card2].style.visibility="hidden";
                         }
+                        document.getElementsByClassName("front")[card1].style.transform = "none";
+                        document.getElementsByClassName("front")[card2].style.transform = "none";
+                        
+                        
                     } else {
                         score += 10;
                         document.getElementById("scoreValue").innerHTML=score;
 
                         if(score == 100) {
-                            document.querySelectorAll(".back").forEach(a=>a.style.display = "none");
-                            document.querySelectorAll(".front").forEach(a=>a.style.display = "block");
+                            document.querySelectorAll(".back").forEach(a=>a.style.visibility = "hidden");
+                            document.querySelectorAll(".front").forEach(a=>a.style.visibility = "visible");
 
                             highScore = score;
 
@@ -167,7 +176,11 @@ window.onclick = function(event) {
                         }
                     }
                     counter = 0;
+                    document.getElementsByClassName("back")[card1].style.transform = "none";
+                    document.getElementsByClassName("back")[card2].style.transform = "none";
                 }
+                frontCard.style.transform= "none";
+                backCard.style.transform = "none";
             }
         }
     }
