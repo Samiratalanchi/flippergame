@@ -26,7 +26,14 @@ var card1,card2;
 var time = 60;
 var score = 0;
 var highScore = 0;
+var x,y;
 function startGame() {
+
+    clearInterval(x);
+    clearTimeout(y);
+
+    document.getElementById("scoreValue").innerHTML= "0";
+    document.getElementById("timerValue").innerHTML= "60";
 
     time=60;
     score=0;
@@ -64,6 +71,9 @@ function startGame() {
 
         document.getElementById("scoreValue").innerHTML= "0";
         document.getElementById("timerValue").innerHTML= "60";
+
+        document.getElementById("restart").style.visibility="hidden";
+        document.getElementById("start").style.visibility="visible";
 
         clearInterval(x);
         clearTimeout(y);
@@ -148,6 +158,9 @@ window.onclick = function(event) {
                             document.getElementById("timerValue").innerHTML= "60";
 
                             start="false";
+
+                            document.getElementById("restart").style.visibility="hidden";
+                            document.getElementById("start").style.visibility="visible";
 
                             clearInterval(x);
                             clearTimeout(y);
