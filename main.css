@@ -1,0 +1,25 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(5,10vw);
+    grid-template-rows: repeat(4,10vw);
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.card {
+    width: 10vw;
+    height: 10vw;
+}
+.front {
+    background: url("./static/front.jpg");
+}
+.front, .back {
+    width: 10vw;
+    height: 10vw;
+    background-size: cover;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.back {
+    visibility: hidden;
+}
