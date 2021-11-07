@@ -32,7 +32,7 @@ body {
     height:60px;
     width: 60px;
     position: relative;
-    transform:scale(2);
+    transform: scale(2);
 }
 .circular .inner{
     position: absolute;
@@ -64,7 +64,7 @@ body {
     -webkit-border-radius: 100%;
     clip: rect(0px, 60px, 60px, 30px);
 }
-.circle .bar .progress{
+.circle .bar #progress1,.circle .bar #progress2{
     position: absolute;
     height: 100%;
     width: 100%;
@@ -72,9 +72,8 @@ body {
     clip: rect(0px, 30px, 60px, 0px);
     background: #4158d0;
 }
-.circle .left .progress{
+.circle .left #progress1{
     z-index:1;
-    animation: left 30s linear both;
 }
 @keyframes left{
     100%{
@@ -86,9 +85,8 @@ body {
     z-index:3;
    
 }
-.circle .right .progress{
-    animation: right 30s linear both;
-    animation-delay:30s;
+.circle .right #progress2{
+
 }
 @keyframes right{
     100%{

@@ -20,6 +20,7 @@ var picAdd = [
     "./static/backimage/9.jpg",
     "./static/backimage/10.jpg"
 ]
+
 var start=false;
 var counter =0;
 var card1,card2;
@@ -27,7 +28,11 @@ var time = 60;
 var score = 0;
 var highScore = 0;
 var x,y;
+
 function startGame() {
+
+    document.getElementById("progress1").style.animation="none";
+    document.getElementById("progress2").style.animation="none";
 
     clearTimeout(y);
     clearInterval(x);
@@ -49,6 +54,11 @@ function startGame() {
     function timer() {
         time--;
         document.getElementById("timerValue").innerHTML=time;
+        if (time==0) {
+            document.getElementById("progress1").style.animation="none";
+            document.getElementById("progress2").style.animation="none";
+            clearInterval(x);
+        }
     }
 
     function finish() {
@@ -73,10 +83,10 @@ function startGame() {
 
         document.getElementById("restart").style.visibility="hidden";
         document.getElementById("start").style.visibility="visible";
-
-        document.getElementById("timerCircle").style.animation="none";
         
         clearInterval(x);
+        document.getElementById("progress1").style.animation="none";
+        document.getElementById("progress2").style.animation="none";
         clearTimeout(y);
     }
 
@@ -103,7 +113,10 @@ function startGame() {
 
         x = setInterval(timer,1000);
         y = setTimeout(finish,60000);
-        document.getElementById("timerCircle").style.animation="startTimer 60s linear forwards";
+
+        document.getElementById("progress1").style.animation="left 30s linear both";
+        document.getElementById("progress2").style.animation="right 30s linear both 30s";
+        
     }
     start = true;
 }
@@ -183,8 +196,10 @@ window.onclick = function(event) {
                             document.getElementById("restart").style.visibility="hidden";
                             document.getElementById("start").style.visibility="visible";
 
-                            document.getElementById("timerCircle").style.animation="none";
+                            document.getElementById("progress1").style.animation="none";
+                            document.getElementById("progress2").style.animation="none";
 
+                            time =60;
                             clearInterval(x);
                             clearTimeout(y);
                         }
