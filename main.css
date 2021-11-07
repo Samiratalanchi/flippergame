@@ -28,20 +28,72 @@ body {
     flex-direction: column;
     border-radius: 30px;
 }
-.timer {
-    /* margin-bottom: 10vw; */
+.circular{
+    height:60px;
+    width: 60px;
+    position: relative;
+    transform:scale(2);
 }
-#timerCircle {
-    background-color: #f5b7af;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 8vw;
-    height: 8vw;
-    border-radius: 50%;
-    border-color: white;
-    border-style: solid;
-    border-width: 0px;
+.circular .inner{
+    position: absolute;
+    z-index: 6;
+    top: 50%;
+    left: 50%;
+    height: 50px;
+    width: 50px;
+    margin: -25px 0 0 -25px;
+    background: #dde6f0;
+    border-radius: 100%;
+   
+}
+.circular #timerValue{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index:10;
+    font-size:14px;
+    font-weight:500;
+    color:#4158d0;
+}
+.circular .bar{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 60px, 60px, 30px);
+}
+.circle .bar .progress{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 30px, 60px, 0px);
+    background: #4158d0;
+}
+.circle .left .progress{
+    z-index:1;
+    animation: left 30s linear both;
+}
+@keyframes left{
+    100%{
+      transform: rotate(180deg);
+    }
+}
+.circle .right {
+    transform: rotate(180deg);
+    z-index:3;
+   
+}
+.circle .right .progress{
+    animation: right 30s linear both;
+    animation-delay:30s;
+}
+@keyframes right{
+    100%{
+      transform: rotate(180deg);
+    }
 }
 .score {
     width: 8vw;
@@ -54,16 +106,15 @@ body {
 
 }
 #start,#restart {
-    margin-top: 8vw;
+    margin-top: -10vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 8vw;
-    height: 8vw;
+    width: 15vw;
+    height: 5vw;
     color: black;
     background-color: #f5b7af;
     box-shadow: 2px 2px 2px  white;
-    border-radius: 50%;
     cursor: pointer;
     position: absolute;
 }
@@ -115,7 +166,7 @@ body {
     /* visibility: hidden; */
 
 }
-@keyframes startTimer {
+/* @keyframes startTimer {
     0% {
         border-width: 0px;
     }
@@ -131,4 +182,4 @@ body {
     100% {
         border-width: 2px 2px 2px 2px;
     }
-}
+} */
