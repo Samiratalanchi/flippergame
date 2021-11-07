@@ -190,7 +190,8 @@ window.onclick = function(event) {
                         }
                     }
                     counter = 0;
-                    
+                    document.getElementsByClassName("front")[card1].style.transform = "none";
+                    document.getElementsByClassName("front")[card2].style.transform = "none";
                 }
                 
             }
