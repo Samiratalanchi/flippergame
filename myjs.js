@@ -30,7 +30,7 @@ var highScore = 0;
 var x,y;
 
 function startGame() {
-
+    
     document.getElementById("header").innerHTML="Finish";
 
     document.getElementById("progress1").style.animation="none";

@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f5d6d2;
+    background-color: #EDE8E9;
 }
 .container {
     margin-top: 10vw;
@@ -17,7 +17,6 @@ body {
 .outside {
     width: 20vw;
     height: 46vw;
-    float: right;
 }
 .box {
     width: 100%;
@@ -27,8 +26,9 @@ body {
     align-items: center;
     flex-direction: column;
     border-radius: 30px;
-    border: 1px solid white;
-    background-color: #f5d6d2;
+    border: 1px solid #D81159;
+    background-color: #EDE8E9;
+    box-shadow: 0px 0px 5px 5px #a50741;
 }
 #timerBox {
     position: absolute;
@@ -48,7 +48,7 @@ body {
     height: 50px;
     width: 50px;
     margin: -25px 0 0 -25px;
-    background: #dde6f0;
+    background: #EDE8E9;
     border-radius: 100%;
    
 }
@@ -60,7 +60,7 @@ body {
     z-index:10;
     font-size:14px;
     font-weight:500;
-    color:#f5b7af;
+    color:#424B54;
 }
 .circular .bar{
     position: absolute;
@@ -76,7 +76,7 @@ body {
     width: 100%;
     -webkit-border-radius: 100%;
     clip: rect(0px, 30px, 60px, 0px);
-    background: #f5b7af;
+    background: #424B54;
 }
 .circle .left #progress1{
     z-index:1;
@@ -91,9 +91,6 @@ body {
     z-index:3;
    
 }
-.circle .right #progress2{
-
-}
 @keyframes right{
     100%{
       transform: rotate(180deg);
@@ -106,8 +103,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 13vw;
+    margin-top: 11vw;
     position: absolute;
+}
+.score label {
+    padding: 8px;
 }
 #start,#restart {
     margin-top: -10vw;
@@ -117,7 +117,7 @@ body {
     width: 15vw;
     height: 5vw;
     color: black;
-    background-color: #f5b7af;
+    background-color: #D81159;
     box-shadow: 2px 2px 2px  white;
     cursor: pointer;
     position: absolute;
@@ -163,11 +163,11 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    color: black;
+    background-color: #D81159;
+    color: white;
     position: absolute;
     border-radius: 0px 0px 30px 30px;
-    margin-top: 18vw;
+    margin-top: -2vw;
     margin-left: 30vw;
     z-index: -1;
 }
