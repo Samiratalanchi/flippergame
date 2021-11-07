@@ -31,8 +31,12 @@ var x,y;
 
 function startGame() {
 
+    document.getElementById("header").innerHTML="Finish";
+
     document.getElementById("progress1").style.animation="none";
     document.getElementById("progress2").style.animation="none";
+    document.getElementById("info").style.marginTop="-2vw";
+    document.getElementById("info").style.animation="none";
 
     clearTimeout(y);
     clearInterval(x);
@@ -49,7 +53,6 @@ function startGame() {
     document.getElementById("restart").style.visibility="visible";
     document.getElementById("start").style.visibility="hidden";
 
-    document.getElementById("info").style.visibility="hidden";
     
     function timer() {
         time--;
@@ -68,7 +71,7 @@ function startGame() {
         document.getElementById("highScoreValueFinish").innerHTML=highScore;
         document.getElementById("scoreValueFinish").innerHTML=score;
 
-        document.getElementById("info").style.visibility="visible";
+        document.getElementById("info").style.animation="showScore 1s linear forwards";
 
         document.querySelectorAll(".back").forEach(a=>a.style.visibility = "hidden");
         document.querySelectorAll(".front").forEach(a=>a.style.visibility = "visible");
@@ -88,6 +91,8 @@ function startGame() {
         document.getElementById("progress1").style.animation="none";
         document.getElementById("progress2").style.animation="none";
         clearTimeout(y);
+
+        document.getElementById("header").innerHTML="Time out";
     }
 
 
@@ -183,7 +188,7 @@ window.onclick = function(event) {
                             document.getElementById("highScoreValueFinish").innerHTML=highScore;
                             document.getElementById("scoreValueFinish").innerHTML=score;
 
-                            document.getElementById("info").style.visibility="visible";
+                            document.getElementById("info").style.animation="showScore 1s linear forwards";
 
                             document.getElementById("restart").style.visibility="hidden";
                             document.getElementById("start").style.visibility="visible";

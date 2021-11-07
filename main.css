@@ -27,9 +27,12 @@ body {
     align-items: center;
     flex-direction: column;
     border-radius: 30px;
+    border: 1px solid white;
+    background-color: #f5d6d2;
 }
 #timerBox {
     position: absolute;
+    margin-top: 2vw;
 }
 .circular{
     height:60px;
@@ -103,11 +106,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 11vw;
+    margin-top: 13vw;
     position: absolute;
 }
 #start,#restart {
-    margin-top: -12vw;
+    margin-top: -10vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -154,18 +157,39 @@ body {
     visibility: hidden;
 }
 #info {
-    width: 18vw;
-    height: 15vw;
+    width: 20vw;
+    height: 20vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.705);
+    background-color: rgb(255, 255, 255);
     color: black;
     position: absolute;
-    border-radius: 50px;
-    margin-top: 20vw;
+    border-radius: 0px 0px 30px 30px;
+    margin-top: 18vw;
     margin-left: 30vw;
-    visibility: hidden;
+    z-index: -1;
+}
+#header {
+    position: absolute;
+    margin-top: -2vw;
+}
+#sc {
+    position: absolute;
+    margin-top: 3vw;
+}
+#high {
+    position: absolute;
+    margin-top: 6vw;
+}
 
+@keyframes showScore {
+    0% {
+        margin-top: -2vw;
+    }
+    100% {
+        margin-top: 18vw;
+    }
+    
 }
