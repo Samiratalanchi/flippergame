@@ -10,7 +10,7 @@ body {
     display: grid;
     grid-template-columns: 58vw 20vw;
     grid-template-rows: 46vw;
-    grid-gap: 2vw;
+    grid-gap: 4vw;
     justify-content: center;
     align-items: center;
 }
@@ -67,34 +67,23 @@ body {
     height: 100%;
     width: 100%;
     background: #fff;
-    -webkit-border-radius: 100%;
+    border-radius: 50%;
     clip: rect(0px, 60px, 60px, 30px);
 }
 .circle .bar #progress1,.circle .bar #progress2{
     position: absolute;
     height: 100%;
     width: 100%;
-    -webkit-border-radius: 100%;
+    border-radius: 50%;
     clip: rect(0px, 30px, 60px, 0px);
     background: #424B54;
 }
 .circle .left #progress1{
     z-index:1;
 }
-@keyframes left{
-    100%{
-      transform: rotate(180deg);
-    }
-}
 .circle .right {
     transform: rotate(180deg);
     z-index:3;
-   
-}
-@keyframes right{
-    100%{
-      transform: rotate(180deg);
-    }
 }
 .score {
     width: 8vw;
@@ -156,6 +145,7 @@ body {
 .back {
     visibility: hidden;
 }
+
 #info {
     width: 20vw;
     height: 20vw;
@@ -168,22 +158,34 @@ body {
     position: absolute;
     border-radius: 0px 0px 30px 30px;
     margin-top: -2vw;
-    margin-left: 30vw;
+    margin-left: 31vw;
     z-index: -1;
+    font-size: 2vw;
 }
+
 #header {
     position: absolute;
     margin-top: -2vw;
 }
 #sc {
     position: absolute;
-    margin-top: 3vw;
+    margin-top: 6vw;
 }
 #high {
     position: absolute;
-    margin-top: 6vw;
+    margin-top: 3vw;
 }
 
+@keyframes left{
+    100%{
+      transform: rotate(180deg);
+    }
+}
+@keyframes right{
+    100%{
+      transform: rotate(180deg);
+    }
+}
 @keyframes showScore {
     0% {
         margin-top: -2vw;
